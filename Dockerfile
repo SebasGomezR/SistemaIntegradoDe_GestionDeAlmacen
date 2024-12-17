@@ -1,20 +1,12 @@
-# Etapa 1: Construcción del proyecto
-FROM maven:3.9-eclipse-temurin-21 AS build
+# Etapa 1: Construcción de la aplicación
+FROM maven:3.8.4-jdk-17 AS build
 WORKDIR /app
-# Copiamos el archivo pom.xml y descargamos las dependencias
-COPY pom.xml .
-RUN mvn dependency:go-offline
-
-# Copiamos el código fuente y construimos el JAR
-COPY src ./src
+COPY . .
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Imagen de ejecución
-FROM openjdk:21-jdk-slim
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-# Exponemos el puerto en el que se ejecutará la aplicación
-EXPOSE 8081
-# Copiamos el archivo JAR generado desde la etapa anterior
-COPY --from=build /app/target/*.jar app.jar
-# Comando para iniciar la aplicación
+COPY --from=build /app/target/your-app.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
