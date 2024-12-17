@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Reportes de mantenimiento </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="colorTitleNavbar">
+        <h1 align="center" class="colorTitle1"> GENERAR REPORTE DE MANTENIMIENTO </h1>
+    </div><br><br>
+
+    <div class="central">
+        <hr>
+        <img src="/imagenes/Mantenimiento_Menu.png" height="16%" width="16%">
+        <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form action="/guardar_reporte" method="post">
+
+                <label class="labels" for="descripcion_reporte"> Descripción: </label>
+                <input class="inputs" name="descripcion_reporte" id="descripcion_reporte" type="text" size="35dx" placeholder="Nombre" required><br><br>
+
+                <label class="labels" for="ubicacion"> Seleccione su ubicación: </label>
+                <select class="inputs" id="ubicacion" name="ubicacion" required>
+                    <option value="Venecia"> Venecia </option>
+                    <option value="Andinapolis"> Andinapolis </option>
+                    <option value="Huasano"> Huasano </option>
+                    <option value="Robledo"> Robledo </option>
+                    <option value="san_Isidro"> San Isidro </option>
+                    <option value="La_Marina"> La Marina </option>
+                    <option value="La_Zonora"> La Zonora </option>
+                    <option value="Cerro_Azul"> Cerro Azul </option>
+                    <option value="Puente_Blanco"> Puente Blanco </option>
+                    <option value="Hospital"> Hospital </option>
+                </select><br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="/guardar_reporte"> GENERAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Editar Insumos </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1 align="center" class="colorTitle1"> EDICIÓN DE INSUMOS MEDICOS </h1><br><br>
+    <div class="central">
+    <hr>
+        <img src="/imagenes/InsumosMedicos.jpg" height="200dx" width="400dx">
+    <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form th:action="@{/insumo/{id}(id=${insumo.id})}" method="post">
+                <label for="nombre_insumo"> Tipo de insumo: </label>
+                <input name="nombre_insumo" id="nombre_insumo" type="text" size="35dx" placeholder="Nombre" th:value="${insumo.nombre_insumo}" required><br><br>
+
+                <label for="cantidad_insumo"> Cantidad: </label>
+                <input name="cantidad_insumo" id="cantidad_insumo" minlength="3" type="number" size="35dx" placeholder="Unidades" th:value="${insumo.cantidad_insumo}" required> <br><br>
+
+                <label for="estado_peticion"> Estado de la solicitud: </label>
+                <select id="estado_peticion" name="estado_peticion" th:value="${insumo.estado_peticion}">
+                    <option value="Sin_Aprobar" th:selected="${insumo.estado_peticion == 'Sin_Aprobar'}"> Sin aprobar </option>
+                    <option value="Aprobado" th:selected="${insumo.estado_peticion == 'Aprobado'}"> Aprobado </option>
+                </select><br><br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="actualizarInsumo"> ACTUALIZAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

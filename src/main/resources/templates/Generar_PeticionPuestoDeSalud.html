@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Generar Petición </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="colorTitleNavbar" style="align-content: center">
+        <h2>FORMULARIO DE PETICIONES PARA PUESTOS DE SALUD</h2>
+    </div>
+    <div class="central">
+        <hr>
+        <img src="/imagenes/Peticiones.jpg" height="200dx" width="200dx">
+        <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form action="/registrarPeticion" method="post">
+
+                <label for="producto_requerido" class="labels"> Tipo de insumo: </label>
+                <input class="inputs" name="producto_requerido" style="align: right" id="producto_requerido" type="text" size="35dx" placeholder="Nombre" required> <br><br>
+
+                <label for="cantidad" class="labels"> Cantidad: </label>
+                <input class="inputs" name="cantidad" id="cantidad" type="number" size="35dx" placeholder="Unidades" required> <br><br>
+
+                <label for="ubicacion" class="labels"> Seleccione su ubicación: </label>
+                <select class="inputs" id="ubicacion" name="ubicacion" required>
+                    <option value="Venecia"> Venecia </option>
+                    <option value="Andinapolis"> Andinapolis </option>
+                    <option value="Huasano"> Huasano </option>
+                    <option value="Robledo"> Robledo </option>
+                    <option value="san_Isidro"> San Isidro </option>
+                    <option value="La_Marina"> La Marina </option>
+                    <option value="La_Zonora"> La Zonora </option>
+                    <option value="Cerro_Azul"> Cerro Azul </option>
+                    <option value="Puente_Blanco"> Puente Blanco </option>
+                    <option value="Servicios_Generales"> Servicios Generales </option>
+                </select><br><br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="registrarPeticion"> ENVIAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

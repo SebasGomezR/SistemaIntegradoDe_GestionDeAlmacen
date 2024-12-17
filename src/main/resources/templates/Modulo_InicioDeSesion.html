@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <div class="form-container">
+            <img src="/imagenes/Login.png" height="150dx" width="150dx" alt="">
+            <h1> Inicio de Sesión </h1>
+            <form action="/validarAcceso" method="post">
+                <input type="text" placeholder="ID Number" id="id" name="id" required>
+                <input id="password" type="password" placeholder="Contraseña" name="password" required>
+                <button type="submit" onclick="window.location.href='/Menu_Principal'">Ingresar</button><br>
+
+                <div style="color: red;">
+                    <p th:if="${error}" th:text="${error}"></p>
+                </div><br><br>
+
+                <p align="center"> <b>¿Aún no tienes una cuenta?</b> </p><br>
+                <div class="buttonRegistrarse">
+                    <button type="submit" onclick="window.location.href='/Modulo_Registro'"> Registrate </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

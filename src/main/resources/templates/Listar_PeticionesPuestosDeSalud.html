@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Peticiones </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+    <script>
+        function confirmarEliminacion(id) {
+            console.log("ID de la petición a eliminar: ", id);
+            if (confirm("¿Estás seguro de que deseas eliminar esta petición?")) {
+                if (id !== undefined && id !== null) {
+                    window.location.href = "/eliminarPeticion/" + id;
+                } else {
+                    console.log("ID no válido: ", id);
+                }
+            }
+        }
+    </script><br>
+
+    <div class="colorTitleNavbar2">
+        <h1> PETICIONES PUESTOS DE SALUD </h1>
+    </div><br><br>
+    <div class="container">
+        <div class="ImgBack" style="text-align:left">
+            <a href="/Menu_Principal">
+                <img src="/imagenes/Back.jpg" alt="Atrás" height="50px" width="50px" title="Página anterior">
+            </a>
+        </div>
+
+        <div class="row">
+            <a th:href="@{/generar_peticion}" class="btn btn-primary btn-sm mb3"> Generar nueva petición </a><br>
+        </div>
+
+        <div class="ImgBack">
+            <div class="top-right">
+                <form action="/filtrar/peticiones" method="get">
+                    <label for="filtrarPuesto"> Filtrar por puesto de salud: </label>
+                    <select id="filtrarPuesto" name="puesto">
+                        <option value="Venecia"> Venecia </option>
+                        <option value="Andinapolis"> Andinapolis </option>
+                        <option value="Huasano"> Huasano </option>
+                        <option value="Robledo"> Robledo </option>
+                        <option value="san_Isidro"> San Isidro </option>
+                        <option value="La_Marina"> La Marina </option>
+                        <option value="La_Zonora"> La Zonora </option>
+                        <option value="Cerro_Azul"> Cerro Azul </option>
+                        <option value="Puente_Blanco"> Puente Blanco </option>
+                        <option value="Servicios_Generales"> Servicios Generales </option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-sm mb3">Filtrar</button>
+                </form>
+
+                <!--<a th:href="@{/filtar/peticiones}" class="btn btn-primary btn-sm mb3"> Filtrar </a><br>-->
+            </div><br>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th> Tipo de Producto </th>
+                    <th> Cantidad </th>
+                    <th> Ubicación </th>
+                    <th> Fecha de pedido </th>
+                    <th> Estado de la petición </th>
+                    <th> Acciones </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="peticion : ${peticiones}">
+                    <td th:text="${peticion.producto_requerido}"></td>
+                    <td th:text="${peticion.cantidad}"></td>
+                    <td th:text="${peticion.ubicacion}"> </td>
+                    <td th:text="${#temporals.format(peticion.fecha_pedido, 'yyyy-MM-dd')}"></td>
+                    <!--<td th:text="${peticion.fecha_pedido}"></td>-->
+                    <td th:text="${peticion.estado_peticion}"></td>
+                    <td>
+                        <a th:href="@{/editar/peticion/{id}(id=${peticion.id})}" class="btn btn-info">Editar</a>
+                        <!--<a th:href="@{/eliminarPeticion/{id}(id=${peticion.id})}" id="listar/peticiones" class="btn btn-danger">Eliminar</a>-->
+                        <button th:onclick="|confirmarEliminacion(${peticion.id})|" >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

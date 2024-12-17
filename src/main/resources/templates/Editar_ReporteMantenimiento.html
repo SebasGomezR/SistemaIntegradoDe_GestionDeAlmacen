@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Editar reporte </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1 align="center" class="colorTitle1"> EDITAR REPORTE DE MANTENIMIENTO </h1><br><br>
+    <div class="central">
+        <hr>
+        <img src="/imagenes/Mantenimiento.png" height="200dx" width="200dx">
+        <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form th:action="@{/mantenimiento/{id}(id=${mantenimiento.id})}" method="post">
+
+                <label for="descripcion_reporte"> Descripción: </label>
+                <input name="descripcion_reporte" id="descripcion_reporte" type="text" size="35dx" placeholder="Nombre" th:value="${mantenimiento.descripcion_reporte}" required><br><br>
+
+                <label for="ubicacion"> Seleccione su ubicación: </label>
+                <select id="ubicacion" name="ubicacion" th:value="${peticion.ubicacion}" required>
+                    <option value="Venecia" th:selected="${peticion.ubicacion == 'Venecia'}"> Venecia </option>
+                    <option value="Andinapolis" th:selected="${peticion.ubicacion == 'Andinapolis'}"> Andinapolis </option>
+                    <option value="Huasano" th:selected="${peticion.ubicacion == 'Huasano'}"> Huasano </option>
+                    <option value="Robledo" th:selected="${peticion.ubicacion == 'Robledo'}"> Robledo </option>
+                    <option value="san_Isidro" th:selected="${peticion.ubicacion == 'san_Isidro'}"> San Isidro </option>
+                    <option value="La_Marina" th:selected="${peticion.ubicacion == 'La_Marina'}"> La Marina </option>
+                    <option value="La_Zonora" th:selected="${peticion.ubicacion == 'La_Zonora'}"> La Zonora </option>
+                    <option value="Cerro_Azul" th:selected="${peticion.ubicacion == 'Cerro_Azul'}"> Cerro Azul </option>
+                    <option value="Puente_Blanco" th:selected="${peticion.ubicacion == 'Puente_Blanco'}"> Puente Blanco </option>
+                    <option value="Puente_Blanco" th:selected="${peticion.ubicacion == 'hospital'}"> Hospital </option>
+                </select><br><br>
+
+                <label for="estado"> Estado del reporte: </label>
+                <select id="estado" name="estado" th:value="${mantenimiento.estado}" required>
+                    <option value="sin_empezar" th:selected="${mantenimiento.estado == 'sin_empezar'}"> Sin empezar </option>
+                    <option value="en_progreso" th:selected="${mantenimiento.estado == 'en_progreso'}"> En progreso </option>
+                    <option value="terminado" th:selected="${mantenimiento.estado == 'terminado'}"> Terminado </option>
+                </select><br><br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="actualizarReporte"> EDITAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

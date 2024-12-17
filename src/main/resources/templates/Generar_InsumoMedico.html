@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Insumos Médicos </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="colorTitleNavbar">
+        <h1 align="center" class="colorTitle1"> REGISTRO DE INSUMOS MEDICOS </h1>
+    </div><br><br>
+    <div class="central">
+    <hr>
+        <img src="/imagenes/InsumosMedicos.jpg" height="200dx" width="400dx">
+    <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form action="/registrarInsumo" method="post">
+                <label class="labels" for="nombre_insumo"> Tipo de insumo: </label>
+                <input class="inputs" name="nombre_insumo" id="nombre_insumo" type="text" size="35dx" placeholder="Nombre" required><br><br>
+
+                <label class="labels" for="cantidad_insumo"> Cantidad: </label>
+                <input class="inputs" name="cantidad_insumo" id="cantidad_insumo" minlength="3" type="number" size="35dx" placeholder="Unidades" required> <br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="registrarInsumo"> AGREGAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

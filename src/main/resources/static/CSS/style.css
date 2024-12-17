@@ -1,0 +1,533 @@
+
+/*                                           Estilos de letra                                           */
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url('/fonts/Gotham-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url('/fonts/Gotham-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+/* **************************************************************************************************** */
+
+
+/*                       Estilo de la imagen de la pagina principal                          */
+.imgLogoPrincipal{
+    margin: 0 0 0 2%;
+}
+.contenedor{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    display: flex;
+    mix-blend-mode: multiply;
+}
+
+.imagenLogo {
+    position: absolute; /* Logo encima del fondo */
+    width: 130%; /* Ajusta el tamaño del logo */
+    height: 130%; /* Mantiene la proporción */
+    top: 50%; /* Centra verticalmente dentro del fondo */
+    left: 50%; /* Centra horizontalmente dentro del fondo */
+    transform: translate(-80%, -56%); /* Ajusta el centrado exacto */
+    z-index: 2; /* Capa superior */
+    display: inline-block;
+}
+.imagenFondo {
+    position: fixed; /* Fija la posición de la imagen al viewport */
+    width: auto; /* Ajusta automáticamente el ancho según el alto */
+    height: 130%; /* Ocupa todo el alto del viewport */
+    top: 0; /* Alinea con la parte superior del viewport */
+    right: 0; /* Alinea con el borde derecho del viewport */
+    z-index: -1; /* La imagen permite superponer el logo */
+    object-fit: cover;
+    transform: translate(20%, -5%);
+}
+.half-width-line {
+    width: 50%;
+    margin: 0;
+    border-top: 3px solid;
+    color: #013b78;
+}
+
+/* **************************************************************************************************** */
+
+
+/*              Posición de las palabras Registrarse e Inicio de Sesión en la Pag. Principal            */
+header .top-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; /* Espaciado entre los enlaces */
+    position: absolute;
+    top: 1vw;
+    right: 2vw;
+    z-index: 1;
+}
+
+header .top-right a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Gotham", serif;
+    font-size: 160%;
+    transition: color 0.3s;
+}
+
+header .top-right a:hover {
+    color: #013b78;
+}
+/* **************************************************************************************************** */
+
+
+/*                       Títulos de la Pag. Principal                          */
+.Title, .Title1{
+    margin-left: 2%;
+}
+.Title{
+    color: #0068A4;
+    font-family: 'Gotham', Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size:6rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    mix-blend-mode: multiply;
+    gap: 1%;
+}
+.Title1{
+    color: #0068A4;
+    font-family: "Gotham", ui-rounded ;
+    font-style: inherit;
+    font-size:1.2rem;
+    margin-top: 0;
+    mix-blend-mode: multiply;
+}
+.TitleCentradoGeneral{
+    color: #0068A4;
+    font-family: "Gotham Black", serif;
+    font-size:150%;
+    transform: translate(0%, 60%);
+}
+.spaceTitle {
+    margin-bottom: 20px;
+}
+/* **************************************************************************************************** */
+
+/*                       Diseño para el inicio de sesión                         */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../imagenes/Background.png') no-repeat center center/cover;
+    filter: blur(10px) brightness(70%);
+    z-index: -1;
+}
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+.buttonRegistrarse {
+    padding: 3px 5px;
+    font-size: 16px;
+    width: 20%;
+    height: 10%;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+/* **************************************************************************************************** */
+
+/*                             Diseño para la pagina del formulario                                     */
+.backgroundForm {
+    background: url('../imagenes/BackgroundTest.png') no-repeat fixed center center/cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px) brightness(70%);
+    z-index: -1;
+}
+.contentForm {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* **************************************************************************************************** */
+
+
+/*                               Diseño para el menú del USER                                           */
+.ImgBack{
+    max-width: 100%;
+    height: auto;
+    margin-left: 1px;
+    margin-top: 5px;
+    padding: 4px;
+    display: inline-block;
+    width: 100%;
+    mix-blend-mode: multiply;
+    float: right;
+}
+.align-right{
+    max-width: 100%;
+    height: auto;
+    margin-left: 1px;
+    margin-top: 5px;
+    padding: 4px;
+    display: inline-block;
+    width: 100%;
+    mix-blend-mode: multiply;
+    text-align: center;
+}
+
+.ImgBack1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.logout-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logout-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.boxMenu {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: #4dafe4;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    max-width: 600px;
+}
+.img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.menu-option {
+    text-align: center;
+    flex: 1 1 calc(30% - 20px);
+    max-width: 300px;
+    border: 2px solid lightskyblue;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-option img {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+.menu-option p {
+    font-family: 'Gotham Book', sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #333;
+}
+.menu-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+.menu-option img:hover {
+    transform: scale(1.2);
+}
+
+/* **************************************************************************************************** */
+
+
+/*                               Diseño para el menú del ADMIN                                           */
+.ImgBackAdmin {
+    text-align: right;
+    padding: 10px;
+}
+
+.ImgBackAdmin img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.ImgBackAdmin img:hover {
+    transform: scale(1.1);
+}
+
+.boxMenuAdmin {
+    text-align: center;
+    background-color: #4dafe4;
+    color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.img-containerAdmin {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-itemAdmin {
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #d1e9ff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-itemAdmin:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menu-itemAdmin img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.menu-itemAdmin img:hover {
+    transform: scale(1.1);
+}
+
+.menu-itemAdmin p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+.backgroundMenuAdmin{
+    background: url('../imagenes/Logo_Fondo_Oscuro.png') no-repeat fixed center center/cover;
+}
+/* **************************************************************************************************** */
+
+body {
+    font-family: 'Gotham', Arial, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 90%;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/*Pantallas medianas*/
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .text {
+        font-size: 1.2em;
+    }
+    body{
+        font-size: 16px;
+    }
+}
+/*pantallas pequeñas*/
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .box1 {
+        width: 90%;
+        margin: 5% auto;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+header{
+    background: #00e3f6;
+}
+
+.body {
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imagenes/background4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.colorTitleNavbar{
+    font-family: "Gotham Medium", fantasy;
+    font-size: 150%;
+    background: #008bff;
+    color: #ffffff;
+    text-align: center;
+    z-index: -1;
+}
+.colorTitleNavbar2{
+    font-family: "Gotham Medium", fantasy;
+    font-size: 150%;
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    z-index: -1;
+}
+.colorTitleNavbar3{
+    font-family: "Gotham Medium", fantasy;
+    font-size: 150%;
+    background: #008bff;
+    color: #000000;
+    text-align: center;
+    z-index: -1;
+}
+
+.central {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border: black;
+    border-radius: 1px;
+    cursor: pointer;
+    margin: -35px -5px;
+    text-transform: uppercase;
+    width: 100%;
+    align-content: center;
+}
+
+.alinearMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonMenu{
+    display: flex;
+    flex-direction: column;
+    background: #d8d3d3;
+    margin: 1px;
+    padding: 20px 15px;
+    text-transform: uppercase;
+    width: 90%;
+    align-content: center;
+    align-items: center;
+}
+
+.centradoTextBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.box {
+    width: 90%;
+    max-width: 600px;
+    padding: 1%;
+    background: #6babef;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    margin: 5% auto;
+    align-content: center;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.labels{
+    font-family: "Gotham Book", sans-serif;
+    font-size: 1.3rem;
+}
+.inputs{
+    height: 1.6rem;
+}

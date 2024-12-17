@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Editar Petición </title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="/imagenes/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1 align="center" class="colorTitle1"> EDITAR PETICIÓN </h1><br><br>
+    <div class="central">
+    <hr>
+        <img src="/imagenes/Peticiones.jpg" height="200dx" width="200dx">
+    <hr>
+    </div><br><br>
+    <hr><br>
+
+    <div class="box">
+        <div class="centradoTextBox">
+            <form th:action="@{/peticion/{id}(id=${peticion.id})}" method="post">
+
+                <label for="producto_requerido"> Tipo de insumo: </label>
+                <input name="producto_requerido" id="producto_requerido" type="text" size="35dx" placeholder="Nombre" th:value="${peticion.producto_requerido}" required> <br><br>
+
+                <label for="cantidad"> Cantidad: </label>
+                <input name="cantidad" id="cantidad" type="number" size="35dx" placeholder="Unidades" th:value="${peticion.cantidad}" required> <br><br>
+
+                <label for="ubicacion"> Seleccione su ubicación: </label>
+                <select id="ubicacion" name="ubicacion" th:value="${peticion.ubicacion}" required>
+                    <option value="Venecia" th:selected="${peticion.ubicacion == 'Venecia'}"> Venecia </option>
+                    <option value="Andinapolis" th:selected="${peticion.ubicacion == 'Andinapolis'}"> Andinapolis </option>
+                    <option value="Huasano" th:selected="${peticion.ubicacion == 'Huasano'}"> Huasano </option>
+                    <option value="Robledo" th:selected="${peticion.ubicacion == 'Robledo'}"> Robledo </option>
+                    <option value="san_Isidro" th:selected="${peticion.ubicacion == 'san_Isidro'}"> San Isidro </option>
+                    <option value="La_Marina" th:selected="${peticion.ubicacion == 'La_Marina'}"> La Marina </option>
+                    <option value="La_Zonora" th:selected="${peticion.ubicacion == 'La_Zonora'}"> La Zonora </option>
+                    <option value="Cerro_Azul" th:selected="${peticion.ubicacion == 'Cerro_Azul'}"> Cerro Azul </option>
+                    <option value="Puente_Blanco" th:selected="${peticion.ubicacion == 'Puente_Blanco'}"> Puente Blanco </option>
+                    <option value="Puente_Blanco" th:selected="${peticion.ubicacion == 'Servicios_Generales'}"> Servicios Generales </option>
+                </select><br><br>
+
+                <label for="estado_peticion"> Estado de la solicitud: </label>
+                <select id="estado_peticion" name="estado_peticion" th:value="${peticion.estado_peticion}">
+                    <option value="Sin_Aprobar" th:selected="${peticion.estado_peticion == 'Sin_Aprobar'}"> Sin aprobar </option>
+                    <option value="Aprobado" th:selected="${peticion.estado_peticion == 'Aprobado'}"> Aprobado </option>
+                </select><br><br><br><br><br>
+
+                <div class="button">
+                    <button type="submit" id="actualizarPeticion"> ENVIAR </button>
+                </div>
+            </form>
+        </div><br><br>
+
+        <div style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>
