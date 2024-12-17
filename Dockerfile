@@ -1,5 +1,5 @@
 # Etapa 1: Construcción de la aplicación
-FROM maven:3.8.4-jdk-23 AS build
+FROM maven:3.9-jdk-23 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
