@@ -1,12 +1,20 @@
-# Etapa 1: Construcción de la aplicación
-FROM maven:3.9-jdk-23 AS build
+# Etapa 1: Construcción del proyecto
+FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY . .
+# Copiamos el archivo pom.xml y descargamos las dependencias
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copiamos el código fuente y construimos el JAR
+COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Imagen de ejecución
-FROM openjdk:23-jdk-slim
+FROM openjdk:21-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/your-app.jar app.jar
+# Exponemos el puerto en el que se ejecutará la aplicación
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Copiamos el archivo JAR generado desde la etapa anterior
+COPY --from=build /app/target/*.jar app.jar
+# Comando para iniciar la aplicación
+ENTRYPOINT ["java", "-jar", "SistemaIntegradoDe_GestionDeAlmacenYMantenimiento.jar"]
